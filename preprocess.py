@@ -3,7 +3,7 @@ import numpy as np
 # 节点数
 Nx = 6
 Ny = 26
-# Nz = 2
+
 
 num_nodes = Nx * Ny  # 节点总数
 num_elements = (Nx - 1) * (Ny - 1)  # 单元总数
