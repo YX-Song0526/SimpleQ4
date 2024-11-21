@@ -15,7 +15,7 @@ M_reduced = M[12:-12, 12:-12]
 # 求解广义特征值问题
 eigenvalues, eigenvectors = eigh(K_reduced, M_reduced)
 
-# 计算模态频率（以 Hz 表示）
+# 计算模态频率（以Hz表示）
 frequencies = np.sqrt(eigenvalues) / (2 * np.pi)
 
 U = np.zeros(num_dof)
