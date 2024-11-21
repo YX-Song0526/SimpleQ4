@@ -77,11 +77,11 @@ plot_stress_cloud(coord, elements, node_stresses, stress_component=1, coord_new=
  [-2.43056528e+00  4.56239250e-01]]
 ```
 
-可视化：
+可视化结果：
 
-<img src="C:\Users\Euler\AppData\Roaming\Typora\typora-user-images\image-20241121172056582.png" alt="image-20241121172056582" style="zoom:67%;" />
+![image](https://github.com/user-attachments/assets/0854f6eb-9f15-414c-a2f8-a80e8ae321f4)
+![image](https://github.com/user-attachments/assets/c6be406c-22a9-4be5-a489-52e7132e90d7)
 
-<img src="C:\Users\Euler\AppData\Roaming\Typora\typora-user-images\image-20241121172118194.png" alt="image-20241121172118194" style="zoom:67%;" />
 
 ### 2. 两端固支悬臂梁的模态分析
 
@@ -126,4 +126,6 @@ plot_stress_cloud(coord, elements, node_stresses, stress_component=1, coord_new=
 
 可视化结果：
 
-![image-20241121172334653](C:\Users\Euler\AppData\Roaming\Typora\typora-user-images\image-20241121172334653.png)
+![image](https://github.com/user-attachments/assets/67cfd83c-76fe-40b9-9141-665048d554c5)
+
+
