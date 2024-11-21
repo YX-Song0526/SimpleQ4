@@ -126,4 +126,4 @@ plot_stress_cloud(coord, elements, node_stresses, stress_component=1, coord_new=
 
 可视化结果：
 
-<img src="C:\Users\Euler\AppData\Roaming\Typora\typora-user-images\image-20241121172334653.png" alt="image-20241121172334653" style="zoom:67%;" />
+![image-20241121172334653](C:\Users\Euler\AppData\Roaming\Typora\typora-user-images\image-20241121172334653.png)
