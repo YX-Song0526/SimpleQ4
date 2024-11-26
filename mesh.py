@@ -1,4 +1,5 @@
 import numpy as np
+from visualize import visualize_2d_mesh
 
 def fill_coord_mat(x_start,
                    x_end,
@@ -57,12 +58,15 @@ class Rectangle:
         self.node_dof_idx = np.arange(0, 2 * self.num_nodes).reshape(-1, 2)
 
 
-# mesh = Rectangle(0.0,
-#                  5.0,
-#                  0.0,
-#                  10.0,
-#                  12,
-#                  24)
+mesh = Rectangle(0.0,
+                 5.0,
+                 0.0,
+                 10.0,
+                 5,
+                 10)
 
-# print(mesh.node_dof_idx)
+coord = mesh.coord
+elements = mesh.elements
+
+visualize_2d_mesh(coord, elements)
 
