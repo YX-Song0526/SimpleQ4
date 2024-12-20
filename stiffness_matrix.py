@@ -1,8 +1,7 @@
 import numpy as np
-from preprocess import num_dof, node_dof_idx
 
 # 材料属性
-E = 4  # 杨氏模量
+E = 69e9  # 杨氏模量
 niu = 0.28  # 泊松比
 rho = 1  # 单位密度
 
@@ -67,11 +66,13 @@ def cal_Ke(node_coords):
     return Ke
 
 
-def cal_K_total(node_coords, elements):
+def cal_K_total(node_coords, elements, num_dof, node_dof_idx):
     """
     计算系统总体刚度矩阵
 
     Args:
+        node_dof_idx: 节点自由度索引矩阵
+        num_dof: 自由度数目
         elements: 单元连接矩阵 (num_elements, 4)
         node_coords: 节点坐标矩阵 (num_nodes, 2)
     """
@@ -115,11 +116,13 @@ def cal_Me(node_coords):
     return Me
 
 
-def cal_M_total(node_coords, elements):
+def cal_M_total(node_coords, elements, num_dof, node_dof_idx):
     """
     计算系统总体质量矩阵
 
     Args:
+        node_dof_idx: 节点自由度索引矩阵
+        num_dof: 自由度数目
         elements: 单元连接矩阵 (num_elements, 4)
         node_coords: 节点坐标矩阵 (num_nodes, 2)
     """
@@ -136,11 +139,12 @@ def cal_M_total(node_coords, elements):
     return M_total
 
 
-def calculate_element_stress(U, elements, node_coords):
+def calculate_element_stress(U, elements, node_coords, node_dof_idx):
     """
     计算单元应力。
 
     Args:
+        node_dof_idx: 节点自由度索引矩阵
         U: 节点位移向量
         elements: 单元连接矩阵 (num_elements, 4)
         node_coords: 节点坐标矩阵 (num_nodes, 2)

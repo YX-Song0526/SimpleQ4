@@ -1,6 +1,7 @@
 import numpy as np
 from visualize import visualize_2d_mesh
 
+
 def fill_coord_mat(x_start,
                    x_end,
                    y_start,
@@ -13,8 +14,8 @@ def fill_coord_mat(x_start,
     dy = (y_end - y_start) / (Ny - 1)
 
     coord = np.array([[x_start + i * dx, y_start + j * dy]
-                     for j in range(Ny) for i in range(Nx)])
-    
+                      for j in range(Ny) for i in range(Nx)])
+
     return coord
 
 
@@ -39,6 +40,7 @@ def fill_elements_mat(Nx, Ny):
 
     return elements
 
+
 class Rectangle:
     def __init__(self,
                  x_start: float,
@@ -47,13 +49,12 @@ class Rectangle:
                  y_end: float,
                  Nx: int,
                  Ny: int):
-
         dx = (x_end - x_start) / (Nx - 1)
         dy = (y_end - y_start) / (Ny - 1)
 
         self.num_nodes = Nx * Ny
         self.num_elements = (Nx - 1) * (Ny - 1)
-        self.coord = fill_coord_mat(x_start,x_end,y_start,y_end,Nx,Ny)
+        self.coord = fill_coord_mat(x_start, x_end, y_start, y_end, Nx, Ny)
         self.elements = fill_elements_mat(Nx, Ny)
         self.node_dof_idx = np.arange(0, 2 * self.num_nodes).reshape(-1, 2)
 
@@ -69,4 +70,3 @@ coord = mesh.coord
 elements = mesh.elements
 
 visualize_2d_mesh(coord, elements)
-

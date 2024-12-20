@@ -1,8 +1,8 @@
 from stiffness_matrix import *
-from preprocess import coord, elements, num_dof, num_nodes, interpolate_stress_to_nodes
+from preprocess import coord, elements, num_dof, num_nodes, interpolate_stress_to_nodes, node_dof_idx
 from visualize import *
 
-K = cal_K_total(coord, elements)
+K = cal_K_total(coord, elements, num_dof, node_dof_idx)
 F = np.zeros(num_dof)
 U = np.zeros(num_dof)
 
@@ -31,7 +31,7 @@ visualize_2d_mesh_plus(coord_new, elements, node_dof_idx)
 plot_comparison(coord=coord, coord_new=coord_1, elements=elements, overturn=True)
 #
 # 计算应力场
-element_stresses = calculate_element_stress(U.flatten(), elements, coord)
+element_stresses = calculate_element_stress(U.flatten(), elements, coord, node_dof_idx)
 node_stresses = interpolate_stress_to_nodes(elements, element_stresses, num_nodes)
 
 # 绘制变形后的应力云图

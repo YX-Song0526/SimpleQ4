@@ -197,3 +197,37 @@ def visualize_2d_mesh_plus(coord, elements, node_dof_idx):
     fig.canvas.mpl_connect("motion_notify_event", on_hover)
 
     plt.show()
+
+
+def plot_nodes(nodes_matrix, dimension=2):
+    """
+    绘制节点矩阵中的所有节点。
+
+    :param nodes_matrix: 节点矩阵，二维或三维节点的列表
+    :param dimension: 网格的维度，2 或 3，默认为 2
+    """
+    if dimension == 2:
+        # 对于二维节点，绘制一个平面上的点
+        nodes_matrix = np.array(nodes_matrix)  # 转换为NumPy数组
+        plt.figure(figsize=(8, 6))
+        plt.scatter(nodes_matrix[:, 0], nodes_matrix[:, 1], c='b', marker='o')
+        plt.title("2D Nodes")
+        plt.xlabel("X")
+        plt.ylabel("Y")
+        plt.grid(True)
+        plt.axis('equal')  # 保持X、Y轴比例相等
+        plt.show()
+
+    elif dimension == 3:
+        # 对于三维节点，绘制一个3D空间中的点
+        nodes_matrix = np.array(nodes_matrix)  # 转换为NumPy数组
+        fig = plt.figure(figsize=(10, 8))
+        ax = fig.add_subplot(111, projection='3d')
+        ax.scatter(nodes_matrix[:, 0], nodes_matrix[:, 1], nodes_matrix[:, 2], c='r', marker='o')
+        ax.set_title("3D Nodes")
+        ax.set_xlabel("X")
+        ax.set_ylabel("Y")
+        ax.set_zlabel("Z")
+        plt.show()
+    else:
+        print("Unsupported dimension. Only 2D and 3D are supported.")
