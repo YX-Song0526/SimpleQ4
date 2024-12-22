@@ -47,7 +47,7 @@ F_f = np.delete(F, fixed_dof)
 
 U_f = np.linalg.solve(K_ff, F_f)
 
-# 需要插入的索引对应的是未删除的节点，即非4, 5, 6, 7索引
+# 需要插入的索引对应的是未删除的节点，即非4, 5, 6, 7 索引
 remaining_indices = [i for i in range(num_dof) if i not in fixed_dof]
 
 # 将 U_f 的值填充回 U 中
@@ -67,4 +67,4 @@ element_stresses = calculate_element_stress(U.flatten(), elements, coord, node_d
 node_stresses = interpolate_stress_to_nodes(elements, element_stresses, num_nodes)
 
 # 绘制变形后的应力云图
-plot_stress_cloud(coord, elements, node_stresses, stress_component=1, coord_new=coord_new)
+plot_stress_cloud(coord, elements, node_stresses, stress_component=0, coord_new=coord_new)
