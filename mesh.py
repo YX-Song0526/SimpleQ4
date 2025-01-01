@@ -66,7 +66,7 @@ mesh = Rectangle(0.0,
                  5,
                  10)
 
-coord = mesh.coord
-elements = mesh.elements
-
-visualize_2d_mesh(coord, elements)
+# coord = mesh.coord
+# elements = mesh.elements
+#
+# visualize_2d_mesh(coord, elements)

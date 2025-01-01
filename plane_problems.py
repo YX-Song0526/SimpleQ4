@@ -117,7 +117,10 @@ class PlaneElastic:
                     B[2, 1::2] = dN_dxy[0, :]
 
                     # 刚度矩阵累加
-                    K_e += B.T @ self.D @ B * detJ * wt * ws
+                    # K_e += B.T @ self.D @ B * detJ * wt * ws
+                    # 添加轴对称系数 2πr 计算
+                    r = np.mean(node_coords[:, 0])  # 计算单元的平均半径
+                    K_e += B.T @ self.D @ B * detJ * wt * ws * 2 * np.pi * r
             return K_e
 
         n = self.num_dof
