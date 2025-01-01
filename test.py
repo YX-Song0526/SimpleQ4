@@ -44,4 +44,4 @@ model.add_loads('inside', f_x=100000000)
 
 model.solve()
 
-model.show_contour(component=0)
+model.show_contour(component=1)
