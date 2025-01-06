@@ -1,6 +1,6 @@
 from plane_problems import PlaneElastic
 from parameters import *
-import copy
+
 
 model1 = PlaneElastic(problem_type=PLANE_STRESS)
 

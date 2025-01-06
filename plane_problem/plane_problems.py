@@ -4,7 +4,7 @@ from read_mesh import read_inp
 from shape_function import gauss_points, gauss_weights, shape_func_derivatives, calculate_element_stress, \
     interpolate_stress_to_nodes
 from typing import Optional
-from visualize import visualize_2d_mesh_plus, plot_stress_cloud
+from visualize import visualize_2d_mesh_plus, plot_stress_cloud, plot_comparison
 from scipy.sparse import csr_matrix
 from scipy.sparse.linalg import spsolve
 
@@ -117,10 +117,8 @@ class PlaneElastic:
                     B[2, 1::2] = dN_dxy[0, :]
 
                     # 刚度矩阵累加
-                    # K_e += B.T @ self.D @ B * detJ * wt * ws
-                    # 添加轴对称系数 2πr 计算
-                    r = np.mean(node_coords[:, 0])  # 计算单元的平均半径
-                    K_e += B.T @ self.D @ B * detJ * wt * ws * 2 * np.pi * r
+                    K_e += B.T @ self.D @ B * detJ * wt * ws
+
             return K_e
 
         n = self.num_dof
@@ -211,9 +209,7 @@ class PlaneElastic:
 
     def show_deformation(self):
         Node_new = self.Node + self.U
-        visualize_2d_mesh_plus(Node_new,
-                               self.Element,
-                               self.node_dof_indices)
+        plot_comparison(self.Node, Node_new, self.Element)
 
     def show_contour(self, component: int = 0):
         Node_new = self.Node + self.U

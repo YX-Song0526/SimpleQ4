@@ -66,8 +66,8 @@ def read_inp(file_path, dimension=2):
                     elements.append(node_ids)
 
     # 将提取的节点和元素数据转换为 NumPy 数组（矩阵）
-    nodes_matrix = np.array(nodes)
-    elements_matrix = np.array(elements)
+    Node = np.array(nodes)
+    Element = np.array(elements)
 
-    return nodes_matrix, elements_matrix
+    return Node, Element
 

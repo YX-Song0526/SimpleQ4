@@ -21,6 +21,10 @@ def visualize_2d_mesh(coord, elements):
         polygon = Polygon(vertices, edgecolor='k', facecolor='lightblue', linewidth=1, alpha=0.6)
         ax.add_patch(polygon)
 
+    # 绘制节点编号
+    for i, (x, y) in enumerate(coord):
+        ax.text(x, y, str(i), color='red', fontsize=8, ha='center', va='center')
+
     # 设置图形属性
     ax.set_aspect('equal')
     ax.set_xlabel('X')
