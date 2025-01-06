@@ -1,6 +1,6 @@
 from plane_problems import PlaneElastic
 from parameters import *
-from test2 import nodes, elements
+from build_circular_mesh import nodes, elements
 
 model1 = PlaneElastic(problem_type=PLANE_STRESS)
 
@@ -23,8 +23,8 @@ model1.add_sets('middle', middle)
 model1.apply_boundary_condition('middle', direct='Y')
 # print(model1.fixed_dof)
 
-model1.add_loads('top', f_y=10000000000)
-model1.add_loads('bottom', f_y=-10000000000)
+model1.add_loads('top', f_y=-10000000000)
+model1.add_loads('bottom', f_y=10000000000)
 
 
 model1.solve()
